@@ -1,0 +1,42 @@
+javac *.java
+  [ to compile all java files ]
+
+java $classname
+  [ to run compile class file ]
+
+jar cf $jarFileName *.class
+  [ to create a jar with a $jarFileName and all classes ]
+
+jar cfe $jarFileName $Main-Class *.class
+  [ to create jar with an entry-point or Main-Class to be able to run the jar ]
+
+java -jar path/to/jar
+  [ to run the jar ] [Note: jar should have Main-Class defined in menifest file to be able to run ]
+
+jar tf path/to/jar
+  [ to list jar file content ]
+
+javac -cp path/to/jar1:path/to/jar2 $javaFileName
+  [ to compile javaFile by giving CLASSPATH so the javaFile can get other classes from jar files which it doesn't have ]
+
+After above step...
+java -cp path/to/jar: class
+  [ to run class which needs other classes from the jar file to be able to run ]
+
+
+let CURRENT_DIR = $PWD
+let OTHER_DIR= other_directory
+
+Default CLASSPATH is current directory
+
+If you change CLASSPATH env variable to $OTHER_DIR
+## export CLASSPATH=$OTHER_DIR
+
+then you can compile $CURRENT_DIR/javafiles which need classes from other $OTHER_DIR/javafiles
+without the need of specifying CLASSPATH (-cp)
+## javac $CURRENT_DIR/javafile
+because then java command looks for classes in the $OTHER_DIR.
+
+But for running the compiled class file you'll have to again specify CLASSPATH (-cp) to override it
+because java will not be able to find your class in $OTHER_DIR.
+java -cp $OTHER_DIR: class
