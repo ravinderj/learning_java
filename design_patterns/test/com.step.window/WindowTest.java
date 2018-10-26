@@ -17,4 +17,16 @@ public class WindowTest {
         Window window = new SimpleWindow();
         assertEquals("a simple window", window.description());
     }
+
+    @Test
+    public void testDrawScrollingWindow() {
+        Window scrollingWindow = new ScrollingWindow();
+        assertEquals("drawn a scrolling window", scrollingWindow.draw());
+    }
+
+    @Test
+    public void testScrollingWindowDescription() {
+        Window scrollingWindow = new ScrollingWindow();
+        assertEquals("a scrolling window", scrollingWindow.description());
+    }
 }
