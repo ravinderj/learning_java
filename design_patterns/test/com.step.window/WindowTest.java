@@ -29,4 +29,16 @@ public class WindowTest {
         Window scrollingWindow = new ScrollingWindow();
         assertEquals("a scrolling window", scrollingWindow.description());
     }
+
+    @Test
+    public void shouldDrawWindowWithBorder() {
+        Window windowWithBorder = new WindowWithBorder();
+        assertEquals("drawn window with border", windowWithBorder.draw());
+    }
+
+    @Test
+    public void shouldGetDescriptionOfWindowWithBorder() {
+        Window windowWithBorder = new WindowWithBorder();
+        assertEquals("a window with border", windowWithBorder.description());
+    }
 }
