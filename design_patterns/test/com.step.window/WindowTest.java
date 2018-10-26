@@ -17,16 +17,4 @@ public class WindowTest {
         Window window = new SimpleWindow();
         assertEquals("a simple window", window.description());
     }
-
-    @Test
-    public void shouldDrawWindowWithBorder() {
-        Window windowWithBorder = new WindowWithBorder();
-        assertEquals("drawn window with border", windowWithBorder.draw());
-    }
-
-    @Test
-    public void shouldGetDescriptionOfWindowWithBorder() {
-        Window windowWithBorder = new WindowWithBorder();
-        assertEquals("a window with border", windowWithBorder.description());
-    }
 }
