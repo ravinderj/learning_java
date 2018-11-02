@@ -1,5 +1,6 @@
 package com.step.window;
 
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -45,5 +46,13 @@ public class WindowDecoratorTest {
         Window simpleWindow = new SimpleWindow();
         Window decoratedWindow = new WindowWithBorderDecorator(simpleWindow);
         assertEquals("a simple window, with border", decoratedWindow.description());
+    }
+
+    @Test
+    public void testWindowWithAllFeatures() {
+        Window simpleWindow = new SimpleWindow();
+        Window decoratedWindow = new WindowWithBorderDecorator(new VerticalWindowDecorator(new HorizontalWindowDecorator(simpleWindow)));
+        assertEquals("drawn a simple window, with horizontal scroll bar, with vertical scroll bar, with border", decoratedWindow.draw());
+        assertEquals("a simple window, with horizontal scroll bar, with vertical scroll bar, with border", decoratedWindow.description());
     }
 }
